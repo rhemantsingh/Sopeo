@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Sold{% endblock %}
+{% block content %}
+</br>
+{% if trans %}
+<h3>List of Sold Items</h3>
+</br>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Total Selling Price</th>
+      <th>Transaction Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for t in trans %}
+      <tr>
+        <td>{{t.item.name}}</td>
+        <td>{{t.quantity}}</td>
+        <td>{{t.selling_price}}</td>
+        <td>{{t.transaction_date}}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p1>No data is available</p1>
+{% endif%}
+
+{% endblock %}

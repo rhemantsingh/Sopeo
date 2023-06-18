@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Items{% endblock %}
+{% block content %}
+</br>
+    <form action="create">
+        <button type="submit"> Create New Item</button>
+    </form>
+    <h1>All Items</h1>
+    </br>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Stock Qty.</th>
+            <th>Selling Price(Rs)</th>
+            <th>Actions</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in data %}
+        <tr>
+            <td>{{product.name}}</td>
+            <td>{{product.quantity}}</td>
+            <td>{{product.selling_price}}</td>
+            <td>
+                <a href="/item/{{product.id}}">View</a>
+                <a href="/item/edit/{{product.id}}">Edit</a>
+                <a href="/sell/{{product.id}}">Sell</a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+
+
+{% endblock %}

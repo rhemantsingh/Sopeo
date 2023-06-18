@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Received{% endblock %}
+{% block content %}
+</br>
+{% if data %}
+<h2> List of Received Orders</h2>
+</br>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Item Name</th>
+        <th>Quantity</th>
+        <th>Total Cost</th>
+        <th>Order Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for dt in data %}
+    <tr>
+    <td>{{dt.item.name}}</td>
+    <td>{{dt.quantity}}</td>
+    <td>{{dt.order_cost}}</td>
+    <td>{{dt.order_date}}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p1>No Order has been received for this Item</p1>
+
+{% endif %}
+
+{% endblock %}

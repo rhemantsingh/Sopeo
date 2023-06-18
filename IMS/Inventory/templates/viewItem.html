@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %}{{ dt.name }}{% endblock %}
+{% block content %}
+
+  <h1>View Item</h1>
+  <ul>
+      <li>
+          Item ID: {{dt.id}}
+      </li>
+      <li>
+          Item Name: {{dt.name}}
+      </li>
+      <li>
+          IIN: {{dt.iin}}
+      </li>
+      <li>
+          Cost Price: Rs. {{dt.cost_price}}
+      </li>
+      <li>
+          Selling Price: Rs. {{dt.selling_price}}
+      </li>
+      <li>
+          Stock Quantity: {{dt.quantity}}
+      </li>
+      <li>
+          Sold Quantity: {{dt.quantity_sold}}
+      </li>
+      <li>
+          Total Profit Earned: Rs. {{dt.profit_earned}}
+      </li>
+      <li>
+          Revenue: Rs. {{dt.revenue}}
+      </li>
+
+  </ul>
+   <table class="table">
+       <thead>
+       <tr>
+    <th><form action="edit/{{dt.id}}">
+        <button type="submit">Edit</button>
+    </form></th>
+    <th><form action="order/{{dt.id}}">
+        <button type="submit">Order More Item</button>
+    </form></th>
+    <th><form action="showOrder/{{dt.id}}">
+        <button type="submit">Show Order</button>
+    </form></th>
+    <th><form action="received/{{dt.id}}">
+        <button type="submit">Order Received</button>
+    </form></th>
+    <th><form action="cancelled/{{dt.id}}">
+        <button type="submit">Order Cancelled</button>
+    </form></th>
+    <th><form action="sold/{{dt.id}}">
+        <button type="submit">Items Sold</button>
+    </form></th>
+       </tr>
+       </thead>
+    </table>
+{% endblock %}

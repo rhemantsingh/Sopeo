@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Orders{% endblock %}
+{% block content %}
+
+{% if orders %}
+<table class="table">
+    <thead>
+    <tr>
+        <th>Item Name</th>
+        <th>Order Qty.</th>
+        <th>Total cost</th>
+        <th>Order Date</th>
+        <th>Order Received</th>
+        <th>Order Cancelled</th>
+    </tr>
+    </thead>
+    <tbody>
+{% for order in orders %}
+<tr>
+    <td>{{order.item.name}}</td>
+    <td>{{order.quantity}}</td>
+    <td>{{order.order_cost}}</td>
+    <td>{{order.order_date}}</td>
+    <td>
+        <form action="receive/{{order.id}}">
+            {% csrf_token %}
+            <button type="submit">Order Received</button>
+        </form>
+    </td>
+    <td>
+        <form action="cancel/{{order.id}}">
+            {% csrf_token %}
+            <button type="submit">Order Cancel</button>
+        </form>
+    </td>
+</tr>
+
+{% endfor %}
+</tbody>
+</table>
+    {% else %}
+    <p1>No Order for this Item</p1>
+    {% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Show{% endblock %}
+{% block content %}
+
+    <h2>All Inventory Products</h2>
+    {% for dt in data%}
+    <ul>
+      <li>
+        id= {{dt.id}} name= {{dt.name}} IIN= {{dt.iin}} Cost Price= {{dt.cost_price}} QTY={{dt.quantity}} Profit Earned={{dt.profit_earned}} Rev={{dt.revenue}}
+      </li>
+    </ul>
+    {% endfor %}
+
+{% endblock %}

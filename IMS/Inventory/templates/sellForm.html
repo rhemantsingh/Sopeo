@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Sell Item{% endblock %}
+{% block content %}
+
+    <h1>{{ item.name }}</h1>
+    <h3>Selling Price: {{item.selling_price}}</h3>
+    <h3>Stock Quantity: {{item.quantity}}</h3>
+    <p>Add number of items you want to sell</p>
+    <form method="post">
+        {% csrf_token %}
+      <input type="number" name="qty">
+      <button type="submit">Sell</button>
+    </form>
+{% endblock %}

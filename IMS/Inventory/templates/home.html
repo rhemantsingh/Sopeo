@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    <h1>Welcome Home</h1>
+    <h3>Total Profit: Rs.{{total_profit}}</h3>
+    <h3>Highest Profit Item: {{ highest_profit_item.name }} sold quantity:{{highest_profit_item.quantity_sold}}
+    with profit: Rs.{{highest_profit_item.profit_earned}}
+    </h3>
+    <h3>Most Sold Item: {{most_sold_item.name}} with selling quantity: {{most_sold_item.quantity_sold}}</h3>
+    <h3>Highest Cost Item: {{highest_cost_item.name}} with cost price: Rs.{{highest_cost_item.cost_price}}</h3>
+    {% if out_of_stock %}
+        <h3>Out of stock Items</h3>
+        <table>
+        {% for stock in out_of_stock %}
+            <tr>
+                {{stock.name}}
+            </tr>
+            <tr>
+                {{stock.quantity}}
+            </tr>
+        {% endfor %}
+            </table>
+    {% endif %}
+{% endblock %}
