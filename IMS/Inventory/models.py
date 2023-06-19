@@ -59,7 +59,7 @@ class Transaction(models.Model):
     item = models.ForeignKey(Inventory, on_delete=models.CASCADE)
     quantity = models.IntegerField()
     selling_price = models.DecimalField(decimal_places=2, max_digits=10)
-    transaction_date = models.DateTimeField(datetime.now(pytz.timezone('Asia/Kolkata')).strftime('%Y:%m:%d %H:%M:%S'))
+    transaction_date = models.DateTimeField(default=datetime.now(pytz.timezone('Asia/Kolkata')).strftime('%Y-%m-%d %H:%M:%S'))
 
     class Meta:
         constraints = [
